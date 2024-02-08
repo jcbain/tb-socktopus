@@ -16,4 +16,10 @@ module.exports = async function (fastify, opts) {
       },
     },
   });
+
+  fastify.register(require("@fastify/http-proxy"), {
+    upstream: "http://localhost:6001",
+    http2: false, // optional
+    prefix: "/buffalo", // needs a prefix as first registration of / is to the websocket
+  });
 };
