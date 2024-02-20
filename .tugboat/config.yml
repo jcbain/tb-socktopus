@@ -1,6 +1,6 @@
 services:
   octopus:
-    image: tugboat/debian
+    image: tugboatqa/debian
     default: true
     expose: 5002
     depends:
@@ -14,7 +14,7 @@ services:
         - npm run start
 
   buffalo:
-    image: tugboat/debian
+    image: tugboatqa/debian
     checkout: true
     commands:
       init:
