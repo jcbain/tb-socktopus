@@ -11,7 +11,7 @@ services:
       build:
         - cd ${TUGBOAT_ROOT}/octopus && /bin/bash ./scripts/build.sh
       start:
-        - npm run start &
+        - cd ${TUGBOAT_ROOT}/octopus && npm run start &
 
   buffalo:
     image: tugboatqa/debian
@@ -22,4 +22,4 @@ services:
       build:
         - cd ${TUGBOAT_ROOT}/buffalo && /bin/bash ./scripts/build.sh
       start:
-        - npm run start &
+        - cd ${TUGBOAT_ROOT}/buffalo && npm run start &
