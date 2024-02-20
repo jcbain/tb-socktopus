@@ -36,6 +36,8 @@ services:
         - cd ${TUGBOAT_ROOT}/crab && /bin/bash ./scripts/build.sh
       start:
         - cd ${TUGBOAT_ROOT}/crab && npm run start &
+      online:
+        - holy
 
   parrot:
     image: tugboatqa/debian
@@ -47,3 +49,5 @@ services:
         - cd ${TUGBOAT_ROOT}/parrot && /bin/bash ./scripts/build.sh
       start:
         - cd ${TUGBOAT_ROOT}/parrot && npm run start &
+      online:
+        - echo "HELLO"
