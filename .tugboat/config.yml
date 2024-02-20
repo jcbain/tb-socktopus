@@ -18,6 +18,8 @@ services:
   buffalo:
     image: tugboatqa/debian
     checkout: true
+    depends:
+      - crab
     commands:
       init:
         - /bin/bash ${TUGBOAT_ROOT}/buffalo/scripts/provision.sh
