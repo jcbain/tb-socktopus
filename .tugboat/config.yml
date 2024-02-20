@@ -1,0 +1,23 @@
+services:
+  octopus:
+    default: true
+    expose: 5002
+    depends:
+      - buffalo
+    commands:
+      init:
+        - /bin/bash ${TUGBOAT_ROOT}/octopus/scripts/provision.sh
+      build:
+        - /bin/bash ${TUGBOAT_ROOT}/octopus/scripts/build.sh
+      start:
+        - npm run start
+
+  buffalo:
+    checkout: true
+    commands:
+      init:
+        - /bin/bash ${TUGBOAT_ROOT}/buffalo/scripts/provision.sh
+      build:
+        - /bin/bash ${TUGBOAT_ROOT}/buffalo/scripts/build.sh
+      start:
+        - npm run start
