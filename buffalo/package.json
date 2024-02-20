@@ -1,5 +1,5 @@
 {
-  "name": "octopus",
+  "name": "buffalo",
   "version": "1.0.0",
   "description": "This project was bootstrapped with Fastify-CLI.",
   "main": "app.js",
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "tap \"test/**/*.test.js\"",
-    "start": "fastify start -l info app.js -a 0.0.0.0 -p 5002",
+    "start": "fastify start -l info app.js -a 0.0.0.0 -p 6001",
     "dev": "fastify start -w -l info -P app.js"
   },
   "keywords": [],
@@ -16,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@fastify/autoload": "^5.0.0",
-    "@fastify/http-proxy": "github:TugboatQA/fastify-http-proxy#feat--dynamic-websocket-upstreams",
+    "@fastify/http-proxy": "^9.4.0",
     "@fastify/sensible": "^5.0.0",
     "fastify": "^4.0.0",
     "fastify-cli": "^5.8.0",

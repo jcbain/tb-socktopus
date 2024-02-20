@@ -1,0 +1,49 @@
+services:
+  octopus:
+    image: tugboatqa/debian
+    default: true
+    expose: 5002
+    depends:
+      - buffalo
+      - parrot
+      - crab
+    commands:
+      init:
+        - /bin/bash ${TUGBOAT_ROOT}/octopus/scripts/provision.sh
+      build:
+        - cd ${TUGBOAT_ROOT}/octopus && /bin/bash ./scripts/build.sh
+      start:
+        - cd ${TUGBOAT_ROOT}/octopus && npm run start &
+
+  buffalo:
+    image: tugboatqa/debian
+    checkout: true
+    commands:
+      init:
+        - /bin/bash ${TUGBOAT_ROOT}/buffalo/scripts/provision.sh
+      build:
+        - cd ${TUGBOAT_ROOT}/buffalo && /bin/bash ./scripts/build.sh
+      start:
+        - cd ${TUGBOAT_ROOT}/buffalo && npm run start &
+
+  crab:
+    image: tugboatqa/debian
+    checkout: true
+    commands:
+      init:
+        - /bin/bash ${TUGBOAT_ROOT}/crab/scripts/provision.sh
+      build:
+        - cd ${TUGBOAT_ROOT}/crab && /bin/bash ./scripts/build.sh
+      start:
+        - cd ${TUGBOAT_ROOT}/crab && npm run start &
+
+  parrot:
+    image: tugboatqa/debian
+    checkout: true
+    commands:
+      init:
+        - /bin/bash ${TUGBOAT_ROOT}/parrot/scripts/provision.sh
+      build:
+        - cd ${TUGBOAT_ROOT}/parrot && /bin/bash ./scripts/build.sh
+      start:
+        - cd ${TUGBOAT_ROOT}/parrot && npm run start &
