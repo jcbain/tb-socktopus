@@ -55,16 +55,3 @@ services:
         - cd ${TUGBOAT_ROOT}/parrot && npm run start &
       online:
         - echo "HELLO"
-
-  AWESOME:
-    image: tugboatqa/debian
-    checkout: true
-    commands:
-      init:
-        - /bin/bash ${TUGBOAT_ROOT}/parrot/scripts/provision.sh
-      build:
-        - cd ${TUGBOAT_ROOT}/parrot && /bin/bash ./scripts/build.sh
-      start:
-        - cd ${TUGBOAT_ROOT}/parrot && npm run start &
-      online:
-        - echo "HELLO"
