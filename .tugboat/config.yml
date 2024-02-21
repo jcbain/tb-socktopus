@@ -14,6 +14,8 @@ services:
         - cd ${TUGBOAT_ROOT}/octopus && /bin/bash ./scripts/build.sh
       start:
         - cd ${TUGBOAT_ROOT}/octopus && npm run start &
+      online:
+        - echo "OCTOPUS online is running"
 
   buffalo:
     image: tugboatqa/debian
