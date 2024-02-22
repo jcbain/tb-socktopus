@@ -14,10 +14,14 @@ services:
         - cd ${TUGBOAT_ROOT}/octopus && /bin/bash ./scripts/build.sh
       start:
         - cd ${TUGBOAT_ROOT}/octopus && npm run start &
+      online:
+        - echo "OCTOPUS online is running"
 
   buffalo:
     image: tugboatqa/debian
     checkout: true
+    depends:
+      - crab
     commands:
       init:
         - /bin/bash ${TUGBOAT_ROOT}/buffalo/scripts/provision.sh
@@ -36,6 +40,8 @@ services:
         - cd ${TUGBOAT_ROOT}/crab && /bin/bash ./scripts/build.sh
       start:
         - cd ${TUGBOAT_ROOT}/crab && npm run start &
+      online:
+        - holy
 
   parrot:
     image: tugboatqa/debian
@@ -47,3 +53,5 @@ services:
         - cd ${TUGBOAT_ROOT}/parrot && /bin/bash ./scripts/build.sh
       start:
         - cd ${TUGBOAT_ROOT}/parrot && npm run start &
+      online:
+        - echo "HELLO"
